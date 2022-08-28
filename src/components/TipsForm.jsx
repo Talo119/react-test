@@ -15,11 +15,7 @@ export const TipsForm = ( {listMenu = []} ) => {
     })
     
     const suma = listMenu.reduce( (prev, next) => prev  + (next.amount * next.cost), 0 )
-    console.log('Suma: ',suma)
-
-    listMenu.forEach(element => {
-        console.log(element.cost)
-    });
+    console.log('Suma: ',suma)    
 
     const { tipNumber } = tipState
     const { subTotal, netTotal } = totalsState
@@ -45,7 +41,8 @@ export const TipsForm = ( {listMenu = []} ) => {
     
   return (
     <>
-        <h3>Tip</h3>
+        <h5>Tip</h5>
+        <hr />
         <input 
             type="number" 
             className="form-control mb-2"
@@ -57,7 +54,7 @@ export const TipsForm = ( {listMenu = []} ) => {
         {
             tipNumber < 0 || tipNumber > 100 && <Message/>
         }
-        <h4 className="mt-2">Payment</h4>
+        <h5 className="mt-2">Payment</h5>
         <hr />
         <TablePayment subTotal={subTotal} netTotal={ netTotal }/>
     </>

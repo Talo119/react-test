@@ -6,7 +6,7 @@ export const ListItem = ( { menu ={} } ) => {
             <div className="fw-bold">                                
                 { menu.name } { menu.id }
             </div>                            
-            { menu.cost }
+            { menu.cost.toFixed(2) }
         </div>
         <span className="badge bg-primary rounded-pill">{ menu.amount }</span>
     </li>

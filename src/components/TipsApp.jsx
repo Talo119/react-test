@@ -1,3 +1,4 @@
+import { MenuDetails } from "./MenuDetails"
 import { MenuList } from "./MenuList"
 import { TipsForm } from "./TipsForm"
 
@@ -14,23 +15,13 @@ const menu2 = [
 export const TipsApp = () => {
   return (
     
-    <div className="container min-vh-100 d-flex justify-content-center align-items-center">
-        <div className="row">
-            <div className="col">
-                <div className="card shadow">                        
-                    <div className="card-body">
-                    <h5 className="card-title">Tips!</h5>
-                    <hr />
-                        <div className="row">                                
-                            <div className="col-md-7">
-                                <MenuList menuList={ menu }/>
-                            </div>
-                            <div className="col-md-5">
-                                <TipsForm listMenu={ menu2 }/>
-                            </div>
-                        </div>                            
-                    </div>
-                </div>
+    <div className="container-fluid">
+        <div className="row mt-3">
+            <div className="col-md-8">
+                <MenuDetails menuItems={ menu } />
+            </div>
+            <div className="col-md-4">
+                <TipsForm listMenu={ menu }/>
             </div>
         </div>    
     </div>
