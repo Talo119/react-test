@@ -4,11 +4,24 @@ export const ListItem = ( { menu ={} } ) => {
     <li className="list-group-item d-flex justify-content-between align-items-start">
         <div className="ms-2 me-auto">
             <div className="fw-bold">                                
-                { menu.name } { menu.id }
-            </div>                            
-            { menu.cost.toFixed(2) }
+                { menu.name }
+            </div>
+            <span className="d-block">
+              <strong>Cost: </strong>  { menu.cost.toFixed(2) }
+            </span>
+            <span className="d-block">
+              <strong>Amount: </strong>  { menu.amount }
+            </span>
+            
         </div>
-        <span className="badge bg-primary rounded-pill">{ menu.amount }</span>
+        <span>
+          <button className="btn btn-primary btn-sm">
+            Edit
+          </button>
+          <button className="btn btn-danger btn-sm ms-2">
+            Delete
+          </button>
+        </span>
     </li>
   )
 }
