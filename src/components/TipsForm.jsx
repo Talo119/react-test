@@ -1,10 +1,14 @@
+import { useContext } from "react"
 import { useEffect, useState } from "react"
+import { MenuContext } from "../context/MenuContext"
 import { useTips } from "../hooks/useTips"
 import { Message } from "./Message"
 import { TablePayment } from "./TablePayment"
 
-export const TipsForm = ( {listMenu = []} ) => {
+export const TipsForm = ( ) => {
     
+    const { menuList } = useContext( MenuContext )
+
     const [tipState, setTipState] = useState({
         tipNumber: 0        
     }, )    
@@ -14,7 +18,7 @@ export const TipsForm = ( {listMenu = []} ) => {
         netTotal: 0
     })
     
-    const suma = listMenu.reduce( (prev, next) => prev  + (next.amount * next.cost), 0 )
+    const suma = menuList.reduce( (prev, next) => prev  + (next.amount * next.cost), 0 )
     console.log('Suma: ',suma)    
 
     const { tipNumber } = tipState
@@ -32,12 +36,11 @@ export const TipsForm = ( {listMenu = []} ) => {
         if (tipNumber < 0 || tipNumber > 100) return
         setTotals({
         ...totalsState,      
-        subTotal: listMenu.reduce( (prev, next) => prev  + (next.amount * next.cost), 0 ),
+        subTotal: menuList.reduce( (prev, next) => prev  + (next.amount * next.cost), 0 ),
         netTotal: tipNumber > 0 ? subTotal + ( subTotal * (tipNumber / 100) ) : subTotal
 
       })
-    }, [tipNumber])
-    
+    }, [tipNumber, menuList])       
     
   return (
     <>

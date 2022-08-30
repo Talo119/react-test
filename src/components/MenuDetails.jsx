@@ -11,6 +11,30 @@ export const MenuDetails = () => {
 
     const { actionForm } = actionsState
 
+    const [editItemState, setEditItemState] = useState({
+        id:0,
+        name:'',
+        cost:0,
+        amount:0
+    })
+
+
+
+    const onShowEditForm = (menuItem) => {
+        setActions({
+            ...actionsState,
+            actionForm: 'edit'
+        })
+
+        setEditItemState({
+            ...editItemState,
+            id: menuItem.id,
+            name: menuItem.name,
+            cost: menuItem.cost,
+            amount: menuItem.amount
+        })
+    }
+
   return (
     <>
         <div className="row">
@@ -28,12 +52,12 @@ export const MenuDetails = () => {
                     </button>
                 </span>                
                 <hr />
-                <MenuList />
+                <MenuList showEditForm={ onShowEditForm }/>
             </div>
             <div className="col-md-7">
                 {
                     actionForm === 'add' ? <AddTipForm />
-                                         : <EditTipForm />
+                                         : <EditTipForm editMenuItem={ editItemState } />
                 }                
             </div>
         </div>

@@ -1,6 +1,5 @@
 import { MenuProvider } from "../context/MenuProvider"
 import { MenuDetails } from "./MenuDetails"
-import { MenuList } from "./MenuList"
 import { TipsForm } from "./TipsForm"
 
 const menu = [
@@ -13,7 +12,7 @@ const menu2 = [
     { id: 2, name: 'Papas Fritas', cost: 15, amount: 4 },
 ]
 
-export const TipsApp = () => {
+export const TipsApp = () => {    
   return (
     <MenuProvider>
         <div className="container-fluid">
@@ -22,7 +21,7 @@ export const TipsApp = () => {
                     <MenuDetails  />
                 </div>
                 <div className="col-md-4">
-                    <TipsForm listMenu={ menu }/>
+                    <TipsForm />
                 </div>
             </div>    
         </div>
