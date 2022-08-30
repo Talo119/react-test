@@ -7,10 +7,11 @@ export const useMenu = () => {
         { id: 1, name: 'Hamburguesa', cost: 34.222, amount: 2 },
         { id: 2, name: 'Papas Fritas', cost: 15, amount: 4 },
     ]
-        
+
     const [menuList, dispatchMenu] = useReducer(menuReducer, initialState)
 
     const handleNewMenu = ( menu ) => {
+        console.log('handleNewMenu: ', menu);
         const action = {
             type: '[MENU]AddMenu',
             payload: menu,

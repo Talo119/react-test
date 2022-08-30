@@ -1,6 +1,7 @@
 export const menuReducer = (initialState = [], action) => {
     switch (action.type) {
         case '[MENU]AddMenu':
+            console.log('AddMenu: ', action.payload)
             return [ ...initialState, action.payload ]
         
         case '[MENU]DeleteMenu':

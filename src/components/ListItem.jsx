@@ -7,7 +7,7 @@ export const ListItem = ( { menu ={} } ) => {
                 { menu.name }
             </div>
             <span className="d-block">
-              <strong>Cost: </strong>  { menu.cost.toFixed(2) }
+              <strong>Cost: </strong>  { menu.cost }
             </span>
             <span className="d-block">
               <strong>Amount: </strong>  { menu.amount }
